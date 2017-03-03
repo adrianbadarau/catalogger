@@ -35,6 +35,12 @@ class Attribute
      */
     private $value;
 
+    /**
+     * @var Document
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Document", inversedBy="attributes")
+    **/
+    private $document;
+
 
     /**
      * Get id
