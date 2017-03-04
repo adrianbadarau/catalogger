@@ -2,36 +2,28 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Attribute;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class DocumentType extends AbstractType
+class AttributeEmbeddedForm extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')        ;
+        $builder->add('value');
+        $builder->add('label');
     }
-    
-    /**
-     * {@inheritdoc}
-     */
+
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Document'
-        ));
+        $resolver->setDefaults([
+            'data_class' => Attribute::class
+        ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getBlockPrefix()
     {
-        return 'appbundle_document';
+        return 'app_bundle_attribute_embedded_form';
     }
-
 }
