@@ -75,5 +75,25 @@ class Document
     {
         return $this->name;
     }
+
+    /**
+     * @return Attribute|Collection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param Attribute|Collection $attributes
+     * @return Document
+     */
+    public function setAttributes($attributes)
+    {
+        $this->attributes = $attributes;
+        return $this;
+    }
+
+
 }
 
